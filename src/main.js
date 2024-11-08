@@ -1,4 +1,16 @@
-import { createApp } from 'vue'
+import Vue from 'vue'
 import App from './App.vue'
+import router from '@/router/router'
+import dateFilter from '@/filters/date.filter'
+import store from './store'
+import 'material-design-icons-iconfont'
 
-createApp(App).mount('#app')
+Vue.config.productionTip = false
+
+Vue.filter('date', dateFilter)
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')

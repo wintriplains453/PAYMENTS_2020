@@ -1,26 +1,47 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+  	<div>
+  		 <component :is="layout">
+
+  			<router-view />
+
+  			</component>
+  		<v-all-regions />
+  	</div>
+      </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import mainLayout from '@/layouts/mainLayout'
+import emptyLayout from '@/layouts/emptyLayout'
+import vAllRegions from '@/components/v-all-regions'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+	export default {
+		name: 'app',
+		components: {
+			mainLayout,
+			emptyLayout,
+			vAllRegions
+		},
+		computed: {
+			layout() {
+				return (this.$route.meta.layout || 'empty') + '-layout'
+			}
+		}
+	}
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+}
+p {
+	font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 </style>
