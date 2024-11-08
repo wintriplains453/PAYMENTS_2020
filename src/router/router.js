@@ -7,7 +7,7 @@ export default new VueRouter({
 	mode: 'history',	
 	routes : [
 		{
-			path: '/',
+			path: '/PAYMENTS_2020/',
 			name: 'home',
 			meta: {layout: 'empty'},
 			component: () => import('@/views/v-home')
